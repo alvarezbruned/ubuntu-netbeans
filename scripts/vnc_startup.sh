@@ -20,8 +20,7 @@ echo -e "\nVNCSERVER started on DISPLAY= $DISPLAY \n\t=> connect via VNC viewer 
 echo -e "\nnoVNC HTML client started:\n\t=> connect via http://$VNC_IP:$NO_VNC_PORT/vnc_auto.html?password=..."
 cat bash.txt >> /etc/bash.bashrc
 sed -i -e '1iexport TERM=xterm\' ~/.bashrc
-sh /root/scripts/java_install_8.sh
-sh /root/scripts/netbeans_8_install.sh
+
 
 for i in "$@"
 do
