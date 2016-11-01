@@ -18,7 +18,7 @@ ADD vnc /root/.vnc
 ADD config /root/.config
 ADD Desktop /root/Desktop
 ADD scripts /root/scripts
-RUN chmod +x /root/.vnc/xstartup /etc/X11/xinit/xinitrc /root/scripts/*.sh
+RUN chmod +x /root/.vnc/xstartup /etc/X11/xinit/xinitrc /root/scripts/*.sh /root/Desktop/*.desktop
 ##. Install java and netbeans
 
 RUN apt-get install software-properties-common -y
@@ -32,6 +32,7 @@ RUN add-apt-repository -y ppa:vajdics/netbeans-installer
 RUN apt-get update
 RUN apt-get install unzip -y
 RUN apt-get install netbeans-installer -y
-
+RUN mkdir /root/.netbeans /root/.netbeans/8.1 /root/.netbeans/8.1/var
+RUN touch /root/.netbeans/8.1/var/license_accepted
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
 CMD ["--tail-log"]
