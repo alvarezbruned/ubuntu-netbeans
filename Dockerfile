@@ -21,6 +21,7 @@ ADD config /root/.config
 ADD Desktop /root/Desktop
 ADD scripts /root/scripts
 RUN chmod +x /root/.vnc/xstartup /etc/X11/xinit/xinitrc /root/scripts/*.sh
-
+CMD ["/root/scripts/java_install_8.sh"]
+CMD ["/root/scripts/netbeans_8_install.sh"]
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
 CMD ["--tail-log"]
