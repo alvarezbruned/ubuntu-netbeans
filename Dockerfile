@@ -21,7 +21,18 @@ ADD config /root/.config
 ADD Desktop /root/Desktop
 ADD scripts /root/scripts
 RUN chmod +x /root/.vnc/xstartup /etc/X11/xinit/xinitrc /root/scripts/*.sh
-CMD ["/root/scripts/java_install_8.sh"]
-CMD ["/root/scripts/netbeans_8_install.sh"]
+##. Install java and netbeans
+RUN apt-get install software-properties-common -y \
+add-apt-repository -y ppa:webupd8team/java \
+apt-get update \
+echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections \
+echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections \
+apt-get -y install oracle-java8-installer \
+apt-get install software-properties-common -y \
+add-apt-repository -y ppa:vajdics/netbeans-installer \
+apt-get update \
+apt-get install unzip -y \
+apt-get install netbeans-installer -y \
+
 ENTRYPOINT ["/root/scripts/vnc_startup.sh"]
 CMD ["--tail-log"]
