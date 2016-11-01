@@ -14,9 +14,10 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y supervisor nano x
 
 # xvnc server porst, if $DISPLAY=:1 port will be 5901
 EXPOSE 5901
-
-ADD .vnc /root/.vnc
-ADD .config /root/.config
+sh /root/scripts/java_install_8.sh
+sh /root/scripts/netbeans_8_install.sh
+ADD vnc /root/.vnc
+ADD config /root/.config
 ADD Desktop /root/Desktop
 ADD scripts /root/scripts
 RUN chmod +x /root/.vnc/xstartup /etc/X11/xinit/xinitrc /root/scripts/*.sh

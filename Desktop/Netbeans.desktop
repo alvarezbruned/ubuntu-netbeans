@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=NetBeans IDE
+Comment=Integrated Development Environment
+Exec=/usr/bin/netbeans
+Icon=/opt/netbeans/nb/netbeans.png
+Path=
+Terminal=false
+StartupNotify=false

@@ -1,0 +1,12 @@
+version: '2'
+services:
+  desktop:
+    image: 'albertalvarezbruned/ubuntu-vnc-light:latest'
+    ports:
+      - '5901:5901'
+      - '6901:6901'
+    volumes:
+      - './home/:/home/'
+    environment:
+      - VNC_PW=mipass
+
