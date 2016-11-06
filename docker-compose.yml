@@ -1,7 +1,7 @@
 version: '2'
 services:
   desktop:
-    image: 'albertalvarezbruned/ubuntu-vnc-light:latest'
+    image: 'albertalvarezbruned/ubuntu-netbeans:latest'
     ports:
       - '5901:5901'
       - '6901:6901'
